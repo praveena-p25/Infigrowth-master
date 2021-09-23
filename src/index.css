@@ -2119,3 +2119,28 @@ select#UrlPSFrequency {
 .edit-project-modules .trash-module {
   color: #0d6efd;
 }
+
+/* TicketsList CSS */
+.main-title-filter {
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+.apply-filter {
+  border: 2px solid black;
+}
+.create-cal {
+  margin-right: 10px;
+}
+.filterimage {
+  width: 20px;
+  height: 50px;
+  margin-left: 20px;
+}
+
+/* Tickets CSS */
+.priority {
+}
+.add-user-tickets {
+  width: 100%;
+}
