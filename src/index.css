@@ -2127,15 +2127,30 @@ select#UrlPSFrequency {
   cursor: pointer;
 }
 .apply-filter {
-  border: 2px solid black;
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.apply-filter:hover {
+  background-color: rgba(236, 236, 236, 0.993);
+  transform: scale(1.01);
 }
 .create-cal {
   margin-right: 10px;
 }
 .filterimage {
   width: 20px;
-  height: 50px;
-  margin-left: 20px;
+  height: 20px;
+  margin-left: 10px;
+  top: 0;
+  margin-top: 10px;
+}
+.applyfilterimg {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  top: 0;
 }
 
 /* Tickets CSS */
@@ -2144,3 +2159,55 @@ select#UrlPSFrequency {
 .add-user-tickets {
   width: 100%;
 }
+.cloudimage {
+  width: 40px;
+  height: 40px;
+}
+.notetextarea {
+}
+.notetextarea:hover {
+  background-color: rgba(236, 236, 236, 0.993);
+  transform: scale(1.01);
+}
+.summarytextarea:hover {
+  background-color: rgba(236, 236, 236, 0.993);
+  transform: scale(1.01);
+}
+.textbox1 {
+  background-color: lightsalmon;
+  color: grey;
+}
+.textbox1:hover {
+  background-color: lightsalmon;
+}
+.textbox2 {
+  background-color: lightsalmon;
+  color: grey;
+}
+.textbox2:hover {
+  background-color: lightsalmon;
+}
+
+/* Document Upload */
+.filebutton {
+  width: 120px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+}
+label span input {
+  z-index: 999;
+  line-height: 0;
+  font-size: 50px;
+  position: absolute;
+  top: -2px;
+  left: -700px;
+  opacity: 0;
+  filter: alpha(opacity = 0);
+  -ms-filter: "alpha(opacity=0)";
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+/* end */

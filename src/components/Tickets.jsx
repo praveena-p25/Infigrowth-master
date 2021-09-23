@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { DatePicker } from "antd";
+import Cloud from "./assets/cloud-arrow-up-fill.svg";
 import { Table, Input, Row, Col, Space, Tag } from "antd";
 import { FilePicker } from "react-file-picker";
 
@@ -142,9 +143,12 @@ function Tickets() {
                       <label>Ticket Type</label>
                       <br />
                       <select style={{ width: "40%" }}>
-                        <option>Alert</option>
-                        <option>Alert</option>
-                        <option value="">Alert</option>
+                        <option value="Alert">Alert</option>
+                        <option value="CompetitorAlert">
+                          Competitor Alert
+                        </option>
+                        <option value="ChangeRequest">Change Request</option>
+                        <option value="Warning">Warning</option>
                       </select>
                     </div>
 
@@ -152,7 +156,11 @@ function Tickets() {
                       <label>Project</label>
                       <br />
                       <select style={{ width: "40%" }}>
-                        <option>Myntra-shoes</option>
+                        <option value="MyntraShoes">Myntra Shoes</option>
+                        <option value="AmazonMerchandise">
+                          Amazon Merchandise
+                        </option>
+                        <option value="MyntraFashion">Myntra Fashion</option>
                       </select>
                     </div>
 
@@ -160,9 +168,31 @@ function Tickets() {
                       <label>Modue</label>
                       <br />
                       <select style={{ width: "40%" }}>
-                        <option>DA/PA Checker</option>
-                        <option>Lead</option>
-                        <option value="">Prospect</option>
+                        <option value="da/pachecker">DA/PA Checker</option>
+                        <option value="googletrends">Google Trends</option>
+                        <option value="pagespeedandcorewebvitals">
+                          Page speed and core web vitals
+                        </option>
+                        <option value="clickshare">Click Share</option>
+                        <option value="ranktracking">Rank Tracking</option>
+                        <option value="siteuptimemonitor">
+                          Site Uptime Monitor
+                        </option>
+                        <option value="gscdataextractor">
+                          GSC Data Extractor
+                        </option>
+                        <option value="organicresearch">
+                          Organic Research
+                        </option>
+                        <option value="roicalculator">Roi Calculator</option>
+                        <option value="contentword">Content Word</option>
+                        <option value="backlinkcount">Backlinks Count</option>
+                        <option value="keywordsearch">Keyword Search</option>
+                        <option value="seovolatality">SEO Volatality</option>
+                        <option value="seomanualaudit">SEO Manual Audit</option>
+                        <option value="googleanalyticedataextractor">
+                          Google Analytics Data Extractor
+                        </option>
                       </select>
                     </div>
 
@@ -182,21 +212,38 @@ function Tickets() {
                         <div class="col">
                           <label>Summary</label>
                           <br />
-                          <textarea>
-                            Site down from 3:30pm, sent via mail
+                          <textarea
+                            class="summarytextarea"
+                            style={{ padding: "50px 100px", color: "grey" }}
+                          >
+                            Site down from 3:30 pm, sent via mail
                           </textarea>
                         </div>
 
                         <div class="col" style={{ marginLeft: "100px" }}>
                           <label>Document Upload</label>
                           <br />
-                          <input
-                            type="file"
-                            id="myfile"
-                            name="myfile"
-                            multiple
-                            onChange={updateList}
-                          />
+                          <label for="file-input">
+                            <img
+                              src={Cloud}
+                              onChange={updateList}
+                              alt="cloud"
+                              class="cloudimage"
+                              style={{ cursor: "pointer" }}
+                            />
+                          </label>
+                          <label class="filebutton">
+                            <span>
+                              <input
+                                type="file"
+                                id="file-input"
+                                // name="myfile"
+                                multiple
+                                onChange={updateList}
+                              />
+                            </span>
+                          </label>
+
                           <label id="fileLabel">
                             {filelist.length > 0
                               ? `${filelist.length} files`
@@ -211,9 +258,12 @@ function Tickets() {
                         <div class="col">
                           <label>Status</label>
                           <select>
-                            <option>Open</option>
-                            <option>Lead</option>
-                            <option value="">Prospect</option>
+                            <option value="open">Open</option>
+                            <option value="inprogress">Inprogress</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="reopen">Reopen</option>
+                            <option value="closed">Closed</option>
+                            <option value="overdue">Overdue</option>
                           </select>
                         </div>
 
@@ -232,27 +282,27 @@ function Tickets() {
                         <div class="col">
                           <label>Assigned To</label>
                           <select>
-                            <option>Raj</option>
-                            <option>Lead</option>
-                            <option value="">Prospect</option>
+                            <option value="emp1">Emp 1</option>
+                            <option value="emp2">Emp 2</option>
+                            <option value="emp3">Emp 3</option>
                           </select>
                         </div>
 
                         <div class="col" style={{ marginLeft: "100px" }}>
                           <label>Priority</label>
                           <select>
-                            <option>High</option>
-                            <option>Lead</option>
-                            <option value="">Prospect</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
                           </select>
                         </div>
                         <div class="w-100"></div>
                         <div class="col">
                           <label>Raised By</label>
                           <select>
-                            <option>Bot</option>
-                            <option>Lead</option>
-                            <option value="">Prospect</option>
+                            <option value="customer">Customer</option>
+                            <option value="bot">Bot</option>
+                            <option value="self">Self</option>
                           </select>
                         </div>
 
@@ -282,7 +332,26 @@ function Tickets() {
                     <div class="form-wrappers">
                       <label>Note</label>
                       <br />
-                      <textarea></textarea>
+                      <div style={{ display: "flex" }}>
+                        <textarea
+                          class="notetextarea"
+                          style={{
+                            padding: "50px 100px",
+                            color: "grey",
+                          }}
+                        >
+                          Site down from 4:00 pm ,sent via mail
+                        </textarea>
+                        <div style={{ marginLeft: "30px" }}>
+                          <textarea class="textbox1">
+                            Changes the Assigned from Raj to Rutht
+                          </textarea>
+                          <br />
+                          <textarea class="textbox2">
+                            Changed the priority of the issue 16/09/2021 t
+                          </textarea>
+                        </div>
+                      </div>
                     </div>
 
                     <div id="fileList">
@@ -307,7 +376,7 @@ function Tickets() {
                 </div>
               </div>
 
-              <ul class="form-action-wrapper">
+              <ul class="form-action-wrapper" style={{ marginRight: "80%" }}>
                 <li>
                   <a href="#" class="ol-btn">
                     Cancel

@@ -235,7 +235,7 @@ function TicketsList() {
     setteamList(data);
     const columns = [
       {
-        title: "Ticket #",
+        title: "Ticket",
         dataIndex: "id",
         key: "id",
       },
@@ -393,21 +393,30 @@ function TicketsList() {
             <div
               style={{
                 display: "flex",
-                border: "2px solid black",
-                padding: "5px",
+                border: "2px solid grey",
+                borderRadius: "5px",
+                // padding: "5px",
               }}
             >
               <label
                 style={{
-                  margin: "15px",
-                  marginRight: "60%",
+                  margin: "10px",
+                  marginRight: "55%",
                   fontSize: "16px",
                 }}
               >
                 Ticket - 25
               </label>
               {/* <input type="text" id="newticket" style={{}} /> */}
-              <select>
+              <select
+                style={{
+                  height: "10px",
+                  padding: "15px",
+                  width: "15%",
+                  marginRight: "20px",
+                  marginTop: "5px",
+                }}
+              >
                 <option>Assignee</option>
                 <option>Emp 1</option>
                 <option>Emp 2</option>
@@ -416,9 +425,26 @@ function TicketsList() {
               </select>
               <button
                 type="button"
-                class="btn btn-dark"
+                class="btn btn-primary"
                 onClick={addticket}
-                style={{ marginLeft: "35px" }}
+                // style={{
+                //   marginLeft: "10px",
+                //   height: "10px",
+                //   marginBottom: "0px",
+                //   marginTop: "5px",
+                //   padding: "15px",
+                //   top: "0",
+                //   bottom: "0",
+                //   textAlign: "center",
+                //   width: "15%",
+                // }}
+                style={{
+                  backgroundColor: "#0000FF",
+                  marginLeft: "10px",
+                  width: "15%",
+                  height: "35px",
+                  marginTop: "4px",
+                }}
               >
                 Assign
               </button>
@@ -464,7 +490,7 @@ function TicketsList() {
                 onClick={() => setShowApplyFilter((prev) => !prev)}
               >
                 {" "}
-                <img src={Filter} alt="filter" class="filterimage" />
+                <img src={Filter} alt="filter" class="applyfilterimg" />
                 Apply filter
               </div>
             </div>
@@ -474,7 +500,7 @@ function TicketsList() {
                   <Input.Search
                     style={{ width: 200, margin: "12px" }}
                     allowClear
-                    placeholder="Ticket#"
+                    placeholder="Ticket"
                     onSearch={(nameSearch) => {
                       setteamList(
                         searchdata.filter((person) =>
@@ -554,7 +580,7 @@ function TicketsList() {
                   <Option value="organicresearch">Organic Research</Option>
                   <Option value="roicalculator">Roi Calculator</Option>
                   <Option value="contentword">Content Word</Option>
-                  <Option value="backlinkcount">Backlink Count</Option>
+                  <Option value="backlinkcount">Backlinks Count</Option>
                   <Option value="keywordsearch">Keyword Search</Option>
                   <Option value="seovolatality">SEO Volatality</Option>
                   <Option value="seomanualaudit">SEO Manual Audit</Option>
@@ -670,8 +696,10 @@ function TicketsList() {
               </div>
             )}
             <br />
+            <div style={{ width: "50%", marginLeft: "22%" }}>
+              <Barchart />
+            </div>
 
-            <Barchart />
             {/* 
             <div class="row">
               <div class="col-sm-5 pad-lzero">
@@ -746,6 +774,7 @@ function TicketsList() {
                 dataSource={[...teamlist]}
                 rowSelection={{ type: selectionType, ...rowSelection }}
                 pagination={{ position: ["topLeft", "bottomRight"] }}
+                // style={{ border: "2px solid grey" }}
               />
             </div>
           </div>
