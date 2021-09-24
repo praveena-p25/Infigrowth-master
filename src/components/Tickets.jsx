@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 
 import { DatePicker } from "antd";
 import Cloud from "./assets/cloud-arrow-up-fill.svg";
+import Clock from "./assets/clock.svg";
 import { Table, Input, Row, Col, Space, Tag } from "antd";
 import { FilePicker } from "react-file-picker";
 
@@ -12,6 +13,7 @@ function Tickets() {
   const [phonecode, setphonecode] = useState("+91");
   const [countrycodes, setcountrycodes] = useState([]);
   const [ticketid, setticketid] = useState("");
+  const [value, setvalue] = useState("default");
   const search = useLocation().search;
   const id = new URLSearchParams(search).get("id");
 
@@ -139,35 +141,46 @@ function Tickets() {
               <div class="common-wcard">
                 <div class="common-form-fields">
                   <div class="add-user-tickets">
-                    <div class="form-wrappers">
-                      <label>Ticket Type</label>
-                      <br />
-                      <select style={{ width: "40%" }}>
-                        <option value="Alert">Alert</option>
-                        <option value="CompetitorAlert">
-                          Competitor Alert
-                        </option>
-                        <option value="ChangeRequest">Change Request</option>
-                        <option value="Warning">Warning</option>
-                      </select>
+                    <div style={{ display: "flex" }}>
+                      <div class="form-wrappers">
+                        <label>Ticket Type</label>
+                        <br />
+                        <select placeholder="Ticket type">
+                          <option value="" disabled selected hidden>
+                            Ticket Type
+                          </option>
+                          <option value="Alert">Alert</option>
+                          <option value="CompetitorAlert">
+                            Competitor Alert
+                          </option>
+                          <option value="ChangeRequest">Change Request</option>
+                          <option value="Warning">Warning</option>
+                        </select>
+                      </div>
+
+                      <div class="form-wrappers" style={{ marginLeft: "15%" }}>
+                        <label>Project</label>
+                        <br />
+                        <select>
+                          <option value="" disabled selected hidden>
+                            Project
+                          </option>
+                          <option value="MyntraShoes">Myntra Shoes</option>
+                          <option value="AmazonMerchandise">
+                            Amazon Merchandise
+                          </option>
+                          <option value="MyntraFashion">Myntra Fashion</option>
+                        </select>
+                      </div>
                     </div>
 
-                    <div class="form-wrappers">
-                      <label>Project</label>
+                    <div class="form-wrappers" style={{ width: "25%" }}>
+                      <label>Module</label>
                       <br />
-                      <select style={{ width: "40%" }}>
-                        <option value="MyntraShoes">Myntra Shoes</option>
-                        <option value="AmazonMerchandise">
-                          Amazon Merchandise
+                      <select placeholder="Raised On">
+                        <option value="" disabled selected hidden>
+                          Module
                         </option>
-                        <option value="MyntraFashion">Myntra Fashion</option>
-                      </select>
-                    </div>
-
-                    <div class="form-wrappers">
-                      <label>Modue</label>
-                      <br />
-                      <select style={{ width: "40%" }}>
                         <option value="da/pachecker">DA/PA Checker</option>
                         <option value="googletrends">Google Trends</option>
                         <option value="pagespeedandcorewebvitals">
@@ -196,11 +209,10 @@ function Tickets() {
                       </select>
                     </div>
 
-                    <div class="form-wrappers">
+                    <div class="form-wrappers" style={{ width: "35%" }}>
                       <label>Subject</label>
                       <br />
                       <input
-                        style={{ width: "40%" }}
                         type="text"
                         name=""
                         placeholder="shoes site down"
@@ -214,13 +226,13 @@ function Tickets() {
                           <br />
                           <textarea
                             class="summarytextarea"
-                            style={{ padding: "50px 100px", color: "grey" }}
+                            style={{ padding: "60px 220px", color: "grey" }}
                           >
                             Site down from 3:30 pm, sent via mail
                           </textarea>
                         </div>
 
-                        <div class="col" style={{ marginLeft: "100px" }}>
+                        <div class="col" style={{ marginLeft: "50px" }}>
                           <label>Document Upload</label>
                           <br />
                           <label for="file-input">
@@ -253,11 +265,15 @@ function Tickets() {
                       </div>
                     </div>
 
+                    {/* status */}
                     <div class="container">
-                      <div class="row">
-                        <div class="col">
+                      <div style={{ display: "flex" }}>
+                        <div>
                           <label>Status</label>
                           <select>
+                            <option value="" disabled selected hidden>
+                              Select status
+                            </option>
                             <option value="open">Open</option>
                             <option value="inprogress">Inprogress</option>
                             <option value="resolved">Resolved</option>
@@ -267,7 +283,7 @@ function Tickets() {
                           </select>
                         </div>
 
-                        <div class="col" style={{ marginLeft: "100px" }}>
+                        <div style={{ marginLeft: "15%" }}>
                           <label>Raised On</label>
                           <br />
                           <Space direction="vertical">
@@ -278,44 +294,66 @@ function Tickets() {
                             />
                           </Space>
                         </div>
-                        <div class="w-100"></div>
-                        <div class="col">
+                      </div>
+
+                      {/* <div class="w-100"></div> */}
+
+                      <div style={{ display: "flex" }}>
+                        <div>
                           <label>Assigned To</label>
                           <select>
+                            <option value="" disabled selected hidden>
+                              Assigned To
+                            </option>
                             <option value="emp1">Emp 1</option>
                             <option value="emp2">Emp 2</option>
                             <option value="emp3">Emp 3</option>
                           </select>
                         </div>
 
-                        <div class="col" style={{ marginLeft: "100px" }}>
+                        <div style={{ marginLeft: "12%" }}>
                           <label>Priority</label>
                           <select>
+                            <option value="" disabled selected hidden>
+                              Priority
+                            </option>
                             <option value="low">Low</option>
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
                           </select>
                         </div>
-                        <div class="w-100"></div>
-                        <div class="col">
+                      </div>
+
+                      {/* <div class="w-100"></div> */}
+                      <div style={{ display: "flex" }}>
+                        <div>
                           <label>Raised By</label>
                           <select>
+                            <option value="" disabled selected hidden>
+                              Raised By
+                            </option>
                             <option value="customer">Customer</option>
                             <option value="bot">Bot</option>
                             <option value="self">Self</option>
                           </select>
                         </div>
 
-                        <div class="col" style={{ marginLeft: "100px" }}>
+                        <div style={{ marginLeft: "15%" }}>
                           <label>Reported via</label>
                           <select>
-                            <option>Bot</option>
-                            <option>Lead</option>
-                            <option value="">Prospect</option>
+                            <option value="" disabled selected hidden>
+                              Reported via
+                            </option>
+                            <option value="call">Call</option>
+                            <option value="email">Email</option>
+                            <option value="contact">Contact</option>
                           </select>
                         </div>
                       </div>
                     </div>
+
+                    {/* end */}
+
                     <br />
                     <div class="form-wrappers">
                       <label style={{ marginRight: "10px" }}>Due On</label>
@@ -336,20 +374,34 @@ function Tickets() {
                         <textarea
                           class="notetextarea"
                           style={{
-                            padding: "50px 100px",
+                            padding: "60px 220px",
                             color: "grey",
                           }}
                         >
                           Site down from 4:00 pm ,sent via mail
                         </textarea>
                         <div style={{ marginLeft: "30px" }}>
-                          <textarea class="textbox1">
-                            Changes the Assigned from Raj to Rutht
-                          </textarea>
+                          <div>
+                            <textarea class="textbox1">
+                              Changes the Assigned from Raj to Rutht
+                            </textarea>
+                            <img
+                              src={Clock}
+                              alt="clock"
+                              class="clockimg"
+                              style={{ width: "10px" }}
+                            />
+                          </div>
                           <br />
                           <textarea class="textbox2">
                             Changed the priority of the issue 16/09/2021 t
                           </textarea>
+                          <img
+                            src={Clock}
+                            alt="clock"
+                            class="clockimg"
+                            style={{ width: "10px" }}
+                          />
                         </div>
                       </div>
                     </div>
@@ -376,7 +428,7 @@ function Tickets() {
                 </div>
               </div>
 
-              <ul class="form-action-wrapper" style={{ marginRight: "80%" }}>
+              <ul class="form-action-wrapper">
                 <li>
                   <a href="#" class="ol-btn">
                     Cancel

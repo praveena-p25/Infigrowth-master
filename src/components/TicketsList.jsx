@@ -77,8 +77,8 @@ function TicketsList() {
       raisedby: "BOT",
       raisedon: "03/05/2020",
       duedate: "03/05/2021",
-      assignedto: "Manav",
-      project: "Myntra:shoes",
+      assignedto: "Emp1",
+      project: "Myntra Shoes",
       module: "DA/PA Checker",
       lastupdate: "RAJ",
       view: <a href="view-client-details">View</a>,
@@ -88,35 +88,61 @@ function TicketsList() {
   }
   useEffect(() => {
     const data = [];
-    var filtercity = [],
-      filterstatus = [];
-    data.push({
-      key: 0,
-      id: (
-        <Link
-          to={{
-            pathname: "/Tickets",
-            search: `?id=0`,
-            state: { detail: "1" },
-          }}
-        >
-          {" "}
-          0{" "}
-        </Link>
-      ),
-      type: "Alert",
-      subject: "Myntra show page down",
-      priority: "High",
-      status: <Tag color="#f50">Over Due</Tag>,
-      raisedby: "BOT",
-      raisedon: "03/05/2020",
-      duedate: "03/05/2021",
-      assignedto: "Manav",
-      project: "Myntra:shoes",
-      module: "DA/PA Checker",
-      lastupdate: "RAJ",
-      view: <a href="view-client-details">View</a>,
-    });
+    var filtercity = [];
+
+    var filtertype = [],
+      filterpriority = [],
+      filterstatus = [],
+      filterassignedto = [],
+      filterproject = [];
+
+    // data.push({
+    //   key: 0,
+    //   id: (
+    //     <Link
+    //       to={{
+    //         pathname: "/Tickets",
+    //         search: `?id=0`,
+    //         state: { detail: "1" },
+    //       }}
+    //     >
+    //       {" "}
+    //       0{" "}
+    //     </Link>
+    //   ),
+    //   type: "Alert",
+    //   subject: "Myntra show page down",
+    //   priority: "High",
+    //   status: <Tag color="#f50">Over Due</Tag>,
+    //   raisedby: "BOT",
+    //   raisedon: "03/05/2020",
+    //   duedate: "03/05/2021",
+    //   assignedto: "sample",
+    //   project: "Myntra:shoes",
+    //   module: "DA/PA Checker",
+    //   lastupdate: "RAJ",
+    //   view: <a href="view-client-details">View</a>,
+    // });
+    // filtertype.push({
+    //   text: "Alert",
+    //   value: "Alert",
+    // });
+    // filterpriority.push({
+    //   text: "High",
+    //   value: "High",
+    // });
+    // // filterstatus.push({
+    // //   text: "Over Due",
+    // //   value: "Over Due",
+    // // });
+    // filterassignedto.push({
+    //   text: "Emp1",
+    //   value: "Emp1",
+    // });
+    // filterproject.push({
+    //   text: "Myntra shoes",
+    //   value: "Myntra shoes",
+    // });
     data.push({
       key: 0,
       id: (
@@ -138,99 +164,157 @@ function TicketsList() {
       raisedby: "BOT",
       raisedon: "03/05/2020",
       duedate: "03/05/2021",
-      assignedto: "Manav",
-      project: "Myntra:shoes",
+      assignedto: "Emp1",
+      project: "Myntra shoes",
       module: "DA/PA Checker",
       lastupdate: "RAJ",
       view: <a href="view-client-details">View</a>,
+    });
+    filtertype.push({
+      text: "Alert",
+      value: "Alert",
+    });
+    filterpriority.push({
+      text: "High",
+      value: "High",
+    });
+    // filterstatus.push({
+    //   text: "In Progress",
+    //   value: "In Progress",
+    // });
+    filterassignedto.push({
+      text: "Emp1",
+      value: "Emp1",
+    });
+    filterproject.push({
+      text: "Myntra shoes",
+      value: "Myntra shoes",
     });
     filtercity.push({
       text: "Chennai",
       value: "Chennai",
     });
-    filterstatus.push({
-      text: "Active",
-      value: "Active",
-    });
-    data.push({
-      key: 0,
-      id: (
-        <Link
-          to={{
-            pathname: "/Tickets",
-            search: `?id=0`,
-            state: { detail: "1" },
-          }}
-        >
-          {" "}
-          0{" "}
-        </Link>
-      ),
-      type: "Alert",
-      subject: "Myntra show page down",
-      priority: "High",
-      status: <Tag color="#87d068">Resolved</Tag>,
-      raisedby: "BOT",
-      raisedon: "03/05/2020",
-      duedate: "03/05/2021",
-      assignedto: "Manav",
-      project: "Myntra:shoes",
-      module: "DA/PA Checker",
-      lastupdate: "RAJ",
-      view: <a href="view-client-details">View</a>,
-    });
-    filtercity.push({
-      text: "Chennai",
-      value: "Chennai",
-    });
-    filterstatus.push({
-      text: "Active",
-      value: "Active",
-    });
-    // for (let i = 1; i < 100; i++) {
-    //   data.push({
-    //     key: i,
+    // filterstatus.push({
+    //   text: "Active",
+    //   value: "Active",
+    // });
+    // datapush
+    // data.push({
+    //   key: 0,
+    //   id: (
+    //     <Link
+    //       to={{
+    //         pathname: "/Tickets",
+    //         search: `?id=0`,
+    //         state: { detail: "1" },
+    //       }}
+    //     >
+    //       {" "}
+    //       0{" "}
+    //     </Link>
+    //   ),
+    //   type: "Alert",
+    //   subject: "Myntra show page down",
+    //   priority: "High",
+    //   status: <Tag color="#87d068">Resolved</Tag>,
+    //   raisedby: "BOT",
+    //   raisedon: "03/05/2020",
+    //   duedate: "03/05/2021",
+    //   assignedto: "Manav",
+    //   project: "Myntra:shoes",
+    //   module: "DA/PA Checker",
+    //   lastupdate: "RAJ",
+    //   view: <a href="view-client-details">View</a>,
+    // });
+    // filtertype.push({
+    //   text: "Alert",
+    //   value: "Alert",
+    // });
+    // filtercity.push({
+    //   text: "Chennai",
+    //   value: "Chennai",
+    // });
+    // filterstatus.push({
+    //   text: "Active",
+    //   value: "Active",
+    // });
+    for (let i = 1; i < 100; i++) {
+      data.push({
+        key: i,
 
-    //     id: (
-    //       <Link
-    //         to={{
-    //           pathname: "/Tickets",
-    //           search: `?id=${i}`,
-    //           state: { detail: "1" },
-    //         }}
-    //       >
-    //         {" "}
-    //         {i}{" "}
-    //       </Link>
-    //     ),
-    //     type: "Competitor Alert",
-    //     subject: "Myntra show page down",
-    //     priority: "High",
-    //     status: <Tag color="#87d068">Completed</Tag>,
-    //     raisedby: "BOT",
-    //     raisedon: "03/05/2020",
-    //     duedate: "03/05/2021",
-    //     assignedto: "Manav",
-    //     project: "Myntra:shoes",
-    //     module: "",
-    //     lastupdate: "RAJ",
-    //     view: <a href="view-client-details">View</a>,
-    //   });
-    //   filtercity.push({
-    //     text: "Bangalore",
-    //     value: "Bangalore",
-    //   });
-    //   filterstatus.push({
-    //     text: `Completed${i}`,
-    //     value: `Completed${i}`,
-    //   });
-    // }
+        id: (
+          <Link
+            to={{
+              pathname: "/Tickets",
+              search: `?id=${i}`,
+              state: { detail: "1" },
+            }}
+          >
+            {" "}
+            {i}{" "}
+          </Link>
+        ),
+        type: "Competitor Alert",
+        subject: "Myntra show page down",
+        priority: "Low",
+        status: <Tag color="#87d068">Resolved</Tag>,
+        raisedby: "BOT",
+        raisedon: "03/05/2020",
+        duedate: "03/05/2021",
+        assignedto: "Emp2",
+        project: "Myntra Fashion",
+        module: "",
+        lastupdate: "RAJ",
+        view: <a href="view-client-details">View</a>,
+      });
+      filtertype.push({
+        text: "Competitor Alert",
+        value: "Competitor Alert",
+      });
+      filterpriority.push({
+        text: "Low",
+        value: "Low",
+      });
+      // filterstatus.push({
+      //   text: "Resolved",
+      //   value: "Resolved",
+      // });
+      filterassignedto.push({
+        text: "Emp2",
+        value: "Emp2",
+      });
+      filterproject.push({
+        text: "Myntra Fashion",
+        value: "Myntra Fashion",
+      });
+      filtercity.push({
+        text: "Bangalore",
+        value: "Bangalore",
+      });
+      // filterstatus.push({
+      //   text: `Completed${i}`,
+      //   value: `Completed${i}`,
+      // });
+    }
 
     //// [...new Map(array.map((x) => [x[key], x])).values()];
-    filtercity = [...new Set(filtercity.map(JSON.stringify))].map(JSON.parse);
-    filterstatus = [...new Set(filterstatus.map(JSON.stringify))].map(
+    filtertype = [...new Set(filtertype.map(JSON.stringify))].map(JSON.parse);
+    filterpriority = [...new Set(filterpriority.map(JSON.stringify))].map(
       JSON.parse
     );
+    // filterstatus = [...new Set(filterstatus.map(JSON.stringify))].map(
+    //   JSON.parse
+    // );
+    filterassignedto = [...new Set(filterassignedto.map(JSON.stringify))].map(
+      JSON.parse
+    );
+    filterproject = [...new Set(filterproject.map(JSON.stringify))].map(
+      JSON.parse
+    );
+    filtercity = [...new Set(filtercity.map(JSON.stringify))].map(JSON.parse);
+    // filterstatus = [...new Set(filterstatus.map(JSON.stringify))].map(
+    //   JSON.parse
+    // );
     setsearch(data);
     setteamList(data);
     const columns = [
@@ -238,11 +322,15 @@ function TicketsList() {
         title: "Ticket",
         dataIndex: "id",
         key: "id",
+        sorter: (a, b) => a.id - b.id,
       },
       {
         title: "Type",
         dataIndex: "type",
         key: "type",
+        filters: filtertype,
+        filterSearch: true,
+        onFilter: (value, record) => record.type.indexOf(value) === 0,
       },
       {
         title: "Subject",
@@ -253,6 +341,9 @@ function TicketsList() {
         title: "Priority",
         dataIndex: "priority",
         key: "priority",
+        filters: filterpriority,
+        filterSearch: true,
+        onFilter: (value, record) => record.priority.indexOf(value) === 0,
       },
       {
         title: "Status",
@@ -278,11 +369,17 @@ function TicketsList() {
         title: "Assigned To",
         dataIndex: "assignedto",
         key: "assignedto",
+        filters: filterassignedto,
+        filterSearch: true,
+        onFilter: (value, record) => record.assignedto.indexOf(value) === 0,
       },
       {
         title: "Project",
         dataIndex: "project",
         key: "project",
+        filters: filterproject,
+        filterSearch: true,
+        onFilter: (value, record) => record.project.indexOf(value) === 0,
       },
       {
         title: "Module",
@@ -391,38 +488,67 @@ function TicketsList() {
               </div>
             </div>
             <div
+              class="top-ticket-frame"
               style={{
                 display: "flex",
                 border: "2px solid grey",
                 borderRadius: "5px",
+                paddingBottom: "5px",
+
                 // padding: "5px",
               }}
             >
               <label
                 style={{
-                  margin: "10px",
-                  marginRight: "55%",
-                  fontSize: "16px",
+                  // margin: "10px",
+                  marginRight: "40%",
+                  fontSize: "18px",
+                  marginTop: "5px",
+                  marginLeft: "5px",
                 }}
               >
                 Ticket - 25
               </label>
+              <span
+                class="export-client"
+                style={{ marginLeft: "13%", marginTop: "5px" }}
+              >
+                <select id="export-client" name="export">
+                  <option value="Export">Export</option>
+                  <option value="PDF">Excel</option>
+                  <option value="WORD">CSV</option>
+                  <option value="Sheets">Sheets</option>
+                </select>
+              </span>
               {/* <input type="text" id="newticket" style={{}} /> */}
-              <select
+              {/* <select
+                
                 style={{
                   height: "10px",
-                  padding: "15px",
+                  padding: "17px",
                   width: "15%",
-                  marginRight: "20px",
+                  marginLeft: "12px",
+                  // marginRight: "20px",
                   marginTop: "5px",
                 }}
               >
-                <option>Assignee</option>
+                
                 <option>Emp 1</option>
                 <option>Emp 2</option>
                 <option>Emp 3</option>
                 <option>Emp 4</option>
+              </select> */}
+              <select
+                style={{ width: "15%", marginTop: "5px", marginLeft: "10px" }}
+              >
+                <option value="" disabled selected hidden>
+                  Assignee
+                </option>
+                <option value="emp1">Emp 1</option>
+                <option value="emp2">Emp 2</option>
+                <option value="emp3">Emp 3</option>
               </select>
+
               <button
                 type="button"
                 class="btn btn-primary"
@@ -440,15 +566,21 @@ function TicketsList() {
                 // }}
                 style={{
                   backgroundColor: "#0000FF",
-                  marginLeft: "10px",
-                  width: "15%",
-                  height: "35px",
-                  marginTop: "4px",
+                  marginLeft: "15px",
+
+                  width: "8%",
+                  height: "36px",
+                  marginTop: "5px",
                 }}
               >
                 Assign
               </button>
-              <img src={Filter} alt="filter" class="filterimage" />
+              <img
+                src={Filter}
+                alt="filter"
+                onClick={() => setShowApplyFilter((prev) => !prev)}
+                class="filterimage"
+              />
             </div>
             <br />
 
@@ -484,18 +616,15 @@ function TicketsList() {
               rootProps={{ "data-testid": "1" }}
             /> */}
 
-            <div>
-              <div
-                class="main-title-filter"
-                onClick={() => setShowApplyFilter((prev) => !prev)}
-              >
-                {" "}
-                <img src={Filter} alt="filter" class="applyfilterimg" />
-                Apply filter
-              </div>
-            </div>
             {showApplyFilter && (
               <div className="apply-filter">
+                <div>
+                  <div class="main-title-filter">
+                    {" "}
+                    <img src={Filter} alt="filter" class="applyfilterimg" />
+                    Apply filter
+                  </div>
+                </div>
                 <span>
                   <Input.Search
                     style={{ width: 200, margin: "12px" }}
@@ -512,6 +641,7 @@ function TicketsList() {
                     id="input-s"
                   />
                 </span>
+
                 <span>
                   <Select
                     showSearch
@@ -768,6 +898,7 @@ function TicketsList() {
                             </div> */}
                 </div>
               </div>
+
               <Table
                 id="sample"
                 columns={teamcol}

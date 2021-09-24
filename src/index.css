@@ -2140,17 +2140,23 @@ select#UrlPSFrequency {
   margin-right: 10px;
 }
 .filterimage {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
-  top: 0;
-  margin-top: 10px;
+  /* width: 20px;
+  height: 20px; */
+  /* margin-left: 80px; */
+  /* top: 0;
+
+  margin-top: 8px; */
+  margin-left: 8px;
 }
 .applyfilterimg {
   width: 20px;
   height: 20px;
   margin-left: 10px;
   top: 0;
+}
+
+.top-ticket-frame {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Tickets CSS */
@@ -2174,18 +2180,18 @@ select#UrlPSFrequency {
   transform: scale(1.01);
 }
 .textbox1 {
-  background-color: lightsalmon;
-  color: grey;
+  background-color: blue;
+  color: white;
 }
 .textbox1:hover {
-  background-color: lightsalmon;
+  background-color: blue;
 }
 .textbox2 {
-  background-color: lightsalmon;
-  color: grey;
+  background-color: blue;
+  color: white;
 }
 .textbox2:hover {
-  background-color: lightsalmon;
+  background-color: blue;
 }
 
 /* Document Upload */
